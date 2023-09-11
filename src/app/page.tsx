@@ -1,46 +1,41 @@
 'use client'
-import { companyBody } from '@/interfaces/Icompany';
-import { getCompanies } from '@/utils/createCompany';
+import { ResponseAPI } from '@/api/client';
+import { createCompany, getCompanies } from '@/utils/createCompany';
 import { useEffect, useState } from "react";
 
 
 export default function Home() {
+  const [data, setData] = useState<ResponseAPI | []>([]);
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [url, setUrl] = useState<string>('');
   const [sector, setSector] = useState<string>('');
   const [logo, setLogo] = useState<string>('');
-  const [body, setBody] = useState<companyBody>({
-    name: '',
-    description: '',
-    email: '',
-    url: '',
-    sector: '',
-    logo: '',
-    stamps: []
-  });
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
     async function get() {
-      const data = await getCompanies();
-      console.log(data);
+      const datas = await getCompanies();
+      setData(datas);
     }
     get();
-  }, [])
+  }, [refresh])
 
   async function handleClick() {
-
-    setBody({
+    const newCompany = await createCompany({
       name, 
       description,
       email,
-      url,
+      url: url.startsWith('www') ? `https://${url}` : url,
       sector,
       logo,
       stamps: [],
-    })
+    });
 
+    console.log(newCompany);
+
+    setRefresh(!refresh);
     setName('')
     setDescription('')
     setEmail('')
@@ -120,6 +115,9 @@ export default function Home() {
         className="mt-6 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
         
       </form>
+     <div className='flex'>
+      { data && data.map((proper: ResponseAPI, index: number) => <h2 key={index}>{proper.name}</h2>) }
+     </div>
      </div>
     </main>
   )
