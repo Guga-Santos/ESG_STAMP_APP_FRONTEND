@@ -1,0 +1,16 @@
+import { client, ResponseAPI } from "@/api/client";
+import { companyBody } from "@/interfaces/Icompany";
+
+export const createCompany = async (body: companyBody): Promise<ResponseAPI> =>  {
+  const { data } = await client.post('/company', { data: body });
+  return data;
+}
+
+export const getCompanies = async (): Promise<ResponseAPI[] | any> => {
+  try {
+    const { data } = await client.get('/companies');
+    return data;
+  } catch (err) {
+    console.error('Error: ', err);
+  }
+}
