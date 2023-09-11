@@ -3,6 +3,7 @@
 import { ResponseAPI } from '@/api/client';
 import { createCompany, getCompanies } from '@/utils/createCompany';
 import { useEffect, useState } from "react";
+import Card from './components/card';
 
 
 export default function Home() {
@@ -116,16 +117,9 @@ export default function Home() {
         className="mt-6 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
         
       </form>
-     <div className='flex'>
-      { data.map((proper: ResponseAPI, index: number) => (
-      <div key={index} className='m-2 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
-        <figure className='h-80'>
-          <img src={proper.logo} alt="logo" className='rounded-t-lg w-64' />
-        </figure>
-        <h2 className='text-xl mt-8'>{proper.name}</h2>
-        <h3>{proper.description}</h3>
-        <p>Contato: {proper.email}</p>
-      </div>  
+     <div className='grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      { data.map((proper: ResponseAPI) => (
+        <Card props={proper} key={proper._id} />
       )) }
      </div>
      </div>
