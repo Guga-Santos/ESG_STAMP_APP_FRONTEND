@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import { ResponseAPI } from '@/api/client';
 import { createCompany, getCompanies } from '@/utils/createCompany';
@@ -5,7 +6,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const [data, setData] = useState<ResponseAPI | []>([]);
+  const [data, setData] = useState<ResponseAPI[] | []>([]);
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -46,7 +47,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <div>
+     <div className='flex-col items-center justify-center'>
       <form>
         <h4>
           Nome da Empresa:
@@ -116,7 +117,16 @@ export default function Home() {
         
       </form>
      <div className='flex'>
-      { data && data.map((proper: ResponseAPI, index: number) => <h2 key={index}>{proper.name}</h2>) }
+      { data.map((proper: ResponseAPI, index: number) => (
+      <div key={index} className='m-2 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+        <figure className='h-80'>
+          <img src={proper.logo} alt="logo" className='rounded-t-lg w-64' />
+        </figure>
+        <h2 className='text-xl mt-8'>{proper.name}</h2>
+        <h3>{proper.description}</h3>
+        <p>Contato: {proper.email}</p>
+      </div>  
+      )) }
      </div>
      </div>
     </main>
