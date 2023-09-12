@@ -64,7 +64,7 @@ const Modal = () => {
                 </div>
                 <div className="relative p-6 flex-auto">
                 <form>
-        <h4>
+        <h4 className="text-black">
           Nome da Empresa:
         </h4>
         <input 
@@ -74,7 +74,7 @@ const Modal = () => {
         id="name"
         className="shadow appearance-none border rounded w-80 py-1 px-1 text-black"
         onChange={(e) => setName(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
 
           Descrição:
         </h4>
@@ -85,7 +85,7 @@ const Modal = () => {
         id="description"
         className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setDescription(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
 
         Email:
         </h4>
@@ -96,7 +96,7 @@ const Modal = () => {
         id="email"
         className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setEmail(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
 
         URL:
         </h4>
@@ -107,7 +107,7 @@ const Modal = () => {
         id="urlEmpresa"
         className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setUrl(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
         
         Relatório:
         </h4>
@@ -118,7 +118,7 @@ const Modal = () => {
         id="dataEmpresa"
         className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setData(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
 
         Categoria:
         </h4>
@@ -129,7 +129,7 @@ const Modal = () => {
         id="sector"
         className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setSector(e.target.value)} />
-        <h4>
+        <h4 className="text-black">
 
           Logo:
         </h4>
