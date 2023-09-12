@@ -1,9 +1,12 @@
 {
+  "homepage": "https://Guga-Santos.github.io/ESG_STAMP_APP_FRONTEND",
   "name": "selos_app_front",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -23,6 +26,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "tw-elements-react": "^1.0.0-alpha1"
   }
 }
