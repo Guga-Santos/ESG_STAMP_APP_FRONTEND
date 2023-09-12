@@ -1,6 +1,6 @@
 import { createCompany } from "@/utils/createCompany";
 import { useContext, useState } from "react";
-import { PageContext } from "../page";
+import { PageContext } from "../../utils/PageContext";
 
 
 const Modal = () => {
@@ -53,7 +53,7 @@ const Modal = () => {
       {showModal ? (
         <>
           <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative w-auto my-6 mx-auto max-w-2xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
                   <h3 className="text-2xl font=semibold">Informações</h3>
@@ -72,7 +72,7 @@ const Modal = () => {
         name="name" 
         value={name}
         id="name"
-        className="shadow appearance-none border rounded w-96 py-1 px-1 text-black"
+        className="shadow appearance-none border rounded w-80 py-1 px-1 text-black"
         onChange={(e) => setName(e.target.value)} />
         <h4>
 

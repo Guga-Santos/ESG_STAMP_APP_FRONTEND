@@ -1,15 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { ResponseAPI } from '@/api/client';
+import { PageContext } from '@/utils/PageContext';
 import { getCompanies } from '@/utils/createCompany';
-import { Dispatch, SetStateAction, createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from './components/card';
 import Modal from './components/modal';
 
-
-export const PageContext = createContext<{
-  setRefresh: Dispatch<SetStateAction<boolean>>;
-}>({ setRefresh: () => {} });
 
 export default function Home() {
   const [data, setData] = useState<ResponseAPI[] | []>([]);
