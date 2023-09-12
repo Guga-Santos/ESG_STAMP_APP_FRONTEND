@@ -10,6 +10,7 @@ const Modal = () => {
   const [email, setEmail] = useState<string>('');
   const [url, setUrl] = useState<string>('');
   const [sector, setSector] = useState<string>('');
+  const [data, setData] = useState<string>('');
   const [logo, setLogo] = useState<string>('');
 
   const { setRefresh } = useContext(PageContext)
@@ -22,6 +23,7 @@ const Modal = () => {
       url: url.startsWith('www') ? `https://${url}` : url,
       sector,
       logo,
+      data,
       stamps: [],
     });
 
@@ -33,6 +35,7 @@ const Modal = () => {
     setUrl('');
     setSector('');
     setLogo('');
+    setData('');
     setRefresh(true);
 
     setShowModal(false);
@@ -53,7 +56,7 @@ const Modal = () => {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-3xl font=semibold">Informações</h3>
+                  <h3 className="text-2xl font=semibold">Informações</h3>
                   <button
                     className="bg-transparent border-0 text-black float-right"
                     onClick={() => setShowModal(false)}
@@ -69,7 +72,7 @@ const Modal = () => {
         name="name" 
         value={name}
         id="name"
-        className="shadow appearance-none border rounded w-96 py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-96 py-1 px-1 text-black"
         onChange={(e) => setName(e.target.value)} />
         <h4>
 
@@ -80,7 +83,7 @@ const Modal = () => {
         name="Descrição"
         value={description}
         id="description"
-        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setDescription(e.target.value)} />
         <h4>
 
@@ -91,19 +94,30 @@ const Modal = () => {
         name="email" 
         value={email}
         id="email"
-        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setEmail(e.target.value)} />
         <h4>
 
-          URL:
+        URL:
         </h4>
         <input 
         type="url" 
         name="url"
         value={url}
         id="urlEmpresa"
-        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setUrl(e.target.value)} />
+        <h4>
+        
+        Relatório:
+        </h4>
+        <input 
+        type="url" 
+        name="data"
+        value={data}
+        id="dataEmpresa"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
+        onChange={(e) => setData(e.target.value)} />
         <h4>
 
         Categoria:
@@ -113,7 +127,7 @@ const Modal = () => {
         name="sector"
         value={sector}
         id="sector"
-        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setSector(e.target.value)} />
         <h4>
 
@@ -124,7 +138,7 @@ const Modal = () => {
         name="logo" 
         value={logo}
         id="logo"
-        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+        className="shadow appearance-none border rounded w-full py-1 px-1 text-black"
         onChange={(e) => setLogo(e.target.value)} />
         <br/>
       </form>

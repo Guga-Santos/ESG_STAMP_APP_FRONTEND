@@ -16,5 +16,6 @@ export interface ResponseAPI {
   url: string;
   sector: string;
   logo: string;
+  data: string;
   stamps: string[];
 }

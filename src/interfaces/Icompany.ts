@@ -5,5 +5,6 @@ export interface companyBody {
   url: string;
   sector: string;
   logo: string;
+  data: string;
   stamps: string[]
 }
