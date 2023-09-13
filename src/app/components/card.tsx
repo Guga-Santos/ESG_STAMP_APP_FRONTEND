@@ -9,7 +9,7 @@ export default function Card({props}: {props: ResponseAPI}) {
 
   return (
     <div>
-      <div key={props._id} className='w-80 m-2 max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+      <div key={props._id} className='w-64 m-2 max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
         <figure className='h-58'>
           <img src={props.logo} alt="logo" className='rounded-t-lg rounded-b-lg w-64' />
         </figure>
