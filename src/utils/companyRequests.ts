@@ -19,3 +19,11 @@ export const getCompanies = async (): Promise<ResponseAPI[] | any> => {
     console.error('Error: ', err);
   }
 }
+
+export const deleteCompany = async (id: string) => {
+  try {
+    await client.delete(`/company/${id}`);
+  } catch (err) {
+    console.error('Error: ', err);
+  }
+}

@@ -1,4 +1,4 @@
-import { createCompany } from "@/utils/createCompany";
+import { createCompany } from "@/utils/companyRequests";
 import { useContext, useState } from "react";
 import { PageContext } from "../../utils/PageContext";
 
@@ -13,7 +13,7 @@ const Modal = () => {
   const [data, setData] = useState<string>('');
   const [logo, setLogo] = useState<string>('');
 
-  const { setRefresh } = useContext(PageContext)
+  const { setRefresh } = useContext(PageContext);
 
   async function handleClick() {
     const newCompany = await createCompany({

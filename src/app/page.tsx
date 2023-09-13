@@ -2,7 +2,7 @@
 'use client'
 import { ResponseAPI } from '@/api/client';
 import { PageContext } from '@/utils/PageContext';
-import { getCompanies } from '@/utils/createCompany';
+import { getCompanies } from '@/utils/companyRequests';
 import { useEffect, useState } from "react";
 import Card from './components/card';
 import Modal from './components/modal';
@@ -22,16 +22,16 @@ export default function Home() {
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <PageContext.Provider value={{ setRefresh }}>
+      <PageContext.Provider value={{ setRefresh, refresh }}>
         <Modal />
-      </PageContext.Provider>
      <div className='flex-col items-center justify-center'>
-     <div className='grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-      { data.map((proper: ResponseAPI) => (
-        <Card props={proper} key={proper._id} />
-      )) }
+      <div className='grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        { data.map((proper: ResponseAPI) => (
+          <Card props={proper} key={proper._id} />
+          )) }
+      </div>
      </div>
-     </div>
+        </PageContext.Provider>
     </main>
   )
 }
