@@ -27,3 +27,12 @@ export const deleteCompany = async (id: string) => {
     console.error('Error: ', err);
   }
 }
+
+export const editCompany = async (id: string, editable: Partial<companyBody>): Promise<ResponseAPI | any> => {
+  try {
+    const { data } = await client.post(`/company/${id}`, editable);
+    return data;
+  } catch (err) {
+    console.error('Error: ', err);
+  }
+}

@@ -30,11 +30,11 @@ export default function Card({props}: {props: ResponseAPI}) {
       <div key={props._id} 
       className='w-64 m-2 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'
       >
-        <div className="flex justify-end">
+        <div className="flex-column">
         <button 
         id="dropdownButton" 
         data-dropdown-toggle="dropdown" 
-        className={hidded ? "hidden" : "inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"} 
+        className={"ml-2 inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"} 
         type="button"
         onClick={() => setHidded(!hidded)}>
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
